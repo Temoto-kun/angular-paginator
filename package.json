@@ -1,0 +1,39 @@
+{
+  "name": "angular-paginator",
+  "version": "0.0.0",
+  "description": "Directive that splits elements inside it.",
+  "main": "bin/angular-paginator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Temoto-kun/angular-paginator.git"
+  },
+  "keywords": [
+    "AngularJS",
+    "pagination",
+    "UI",
+    "DOM",
+    "presentation",
+    "preview",
+    "wysiwyg"
+  ],
+  "author": "TheoryOfNekomata <allan.crisostomo@outlook.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Temoto-kun/angular-paginator/issues"
+  },
+  "homepage": "https://github.com/Temoto-kun/angular-paginator#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-uglify": "^2.0.0",
+    "angular-ui-router": "^0.3.2"
+  },
+  "dependencies": {
+    "angular": "^1.6.0",
+    "jquery": "^3.1.1"
+  }
+}

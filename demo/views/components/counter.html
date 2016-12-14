@@ -1,0 +1,7 @@
+<div class="cookie-counter">
+  <div>
+    <label>Cookies in jar: </label><input type="number" min="0" data-ng-change="$ctrl.onChange({ $count: $ctrl.cookieCount })" data-ng-model="$ctrl.cookieCount">
+  </div>
+  <button type="button" data-ng-click="$ctrl.putCookieInJar()">Put cookie in jar</button>
+  <button type="button" data-ng-click="$ctrl.takeAllCookies()">Take all cookies</button>
+</div>

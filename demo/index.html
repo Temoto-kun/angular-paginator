@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS Paginator Demo</title>
+  <link rel="stylesheet" type="text/css" href="../node_modules/@theoryofnekomata/jquery-paginator/bin/jquery-paginator.css">
+  <link rel="stylesheet" type="text/css" href="../bin/angular-paginator.css">
+  <link rel="stylesheet" type="text/css" href="views/components/demo.css">
+</head>
+<body data-ng-app="demo">
+
+<h1>Paginator Demo + UI Router FTW</h1>
+<p>
+  This demonstrates the power of <code>angular-paginator</code> on listening to <code>onDOMSubtreeModified</code> event
+  and the ability to copy the event and data of the elements.
+</p>
+
+<foo-demo></foo-demo>
+
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../node_modules/@theoryofnekomata/jquery-paginator/bin/jquery-paginator.js"></script>
+
+<script src="../node_modules/angular/angular.js"></script>
+<script src="../bin/angular-paginator.js"></script>
+
+<script src="../node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+
+<script src="module.js"></script>
+
+<script src="controllers/Contact.js"></script>
+<script src="controllers/Counter.js"></script>
+<script src="controllers/Front.js"></script>
+<script src="controllers/Demo.js"></script>
+
+<script src="components/demo.js"></script>
+<script src="components/counter.js"></script>
+
+<script src="config/routing.js"></script>
+</body>
+</html>
