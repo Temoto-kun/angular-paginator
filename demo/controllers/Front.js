@@ -13,6 +13,8 @@
 
                 ctrl.longArrayLength = length;
 
+                ctrl.longArray = [];
+
                 for(i = 1; i <= ctrl.longArrayLength; i++) {
                     (function (i) {
                         ctrl.longArray.push(i);

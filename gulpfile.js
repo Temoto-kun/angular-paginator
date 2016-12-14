@@ -6,6 +6,7 @@ var
      */
     files = [
         './src/module.js',
+        './src/services/**/*.js',
         './src/controllers/**/*.js',
         './src/components/**/*.js'
     ],
@@ -38,7 +39,7 @@ if (name.indexOf('/') > -1) {
 gulp.task('compile', function (cb) {
     gulp.src(files)
         .pipe(concat(name + '.js'))
-        .pipe(ngAnnotate({ remove: true, single_quotes: true }))
+        .pipe(ngAnnotate())
         .pipe(gulp.dest(output))
         .on('end', cb);
 });
@@ -46,7 +47,7 @@ gulp.task('compile', function (cb) {
 gulp.task('compile-minified', function (cb) {
     gulp.src(files)
         .pipe(concat(name + '.min.js'))
-        .pipe(ngAnnotate({ remove: true, single_quotes: true }))
+        .pipe(ngAnnotate())
         .pipe(uglify())
         .pipe(gulp.dest(output))
         .on('end', cb);

@@ -1,7 +1,9 @@
-<div>
+<div class="paginator-section">
   <h1>Front</h1>
-  <foo-counter data-on-change="frontCtrl.changeLongArrayLength($count)"></foo-counter>
-  <div data-ng-repeat="i in frontCtrl.longArray track by $index" id="el-{{ i }}">
-    The quick brown fox jumps over the lazy dog.
+</div>
+<foo-counter data-on-change="frontCtrl.changeLongArrayLength($count)"></foo-counter>
+<div class="paginator-section">
+  <div data-ng-repeat="i in frontCtrl.longArray track by $index">
+    The quick brown fox jumps over the lazy dog #{{ i }}.
   </div>
 </div>

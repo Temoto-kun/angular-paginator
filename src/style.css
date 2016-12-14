@@ -1,3 +1,12 @@
 .paginator-model {
   display: none;
 }
+
+.paginator-section {
+  display: inline;
+}
+
+/*.paginator-component .ng-scope,*/
+/*.paginator-component .ng-isolate-scope {*/
+  /*display: inline !important;*/
+/*}*/

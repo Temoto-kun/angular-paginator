@@ -1,4 +1,14 @@
 <div class="demo-component">
+  <div class="dismissible-popup" data-ng-if="$ctrl.popupVisible">
+    <h1>Paginator Demo + UI Router FTW</h1>
+    <p>
+      This demonstrates the power of <code>angular-paginator</code> on listening to <code>onDOMSubtreeModified</code> event
+      and the ability to copy the event and data of the elements.
+    </p>
+    <div>
+      <button data-ng-click="$ctrl.popupVisible = false;">Got it</button>
+    </div>
+  </div>
   <nav class="nav nav-component">
     <ul class="list">
       <li class="item nav-item" data-ui-sref-active="-active">

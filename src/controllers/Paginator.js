@@ -6,16 +6,17 @@
     angular
         .module('theoryofnekomata.paginator.controllers')
         .controller('PaginatorCtrl', function PaginatorCtrl(
-            $element
+            $element,
+            PaginatorSettingsService
         ) {
+            "ngInject";
+
             var $component = $element.children().eq(0),
                 $models = $element.children().eq(1),
 
                 $header = $models.children().eq(0),
                 $content = $models.children().eq(1),
                 $footer = $models.children().eq(2);
-
-            'ngInject';
 
             function updateHeaders() {
                 var $headers = $header.children();
@@ -50,7 +51,13 @@
             }
 
             function paginateView() {
-                $component.paginate();
+                var settings = PaginatorSettingsService.getSettings();
+
+                settings.ignore = [
+                    '[data-ng-repeat]'
+                ];
+
+                $component.paginate(settings);
             }
 
             function update() {

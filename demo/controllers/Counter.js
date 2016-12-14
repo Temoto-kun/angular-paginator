@@ -3,7 +3,7 @@
         .module('demo.controllers')
         .controller('CounterCtrl', function CounterCtrl() {
             this.$onInit = function () {
-                this.cookieCount = 5;
+                this.cookieCount = 100;
             };
 
             this.takeAllCookies = function takeAllCookies() {
