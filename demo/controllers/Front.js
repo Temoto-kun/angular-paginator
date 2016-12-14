@@ -4,15 +4,12 @@
         .controller('FrontCtrl', function FrontCtrl() {
             var ctrl = this;
 
-            ctrl.longArrayLength = 0;
+            ctrl.longArrayLength = 100;
 
             ctrl.changeLongArrayLength = function changeLongArrayLength(length) {
                 var i;
 
-                console.log(length);
-
                 ctrl.longArrayLength = length;
-
                 ctrl.longArray = [];
 
                 for(i = 1; i <= ctrl.longArrayLength; i++) {
@@ -25,7 +22,7 @@
             ctrl.$onInit = function () {
                 ctrl.longArray = [];
 
-                ctrl.changeLongArrayLength(5);
+                ctrl.changeLongArrayLength(ctrl.longArrayLength);
             };
         });
 })();
