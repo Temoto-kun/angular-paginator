@@ -2,6 +2,7 @@
   <div>
     <label>Cookies in jar: </label><input type="number" min="0" data-ng-change="$ctrl.onChange({ $count: $ctrl.cookieCount })" data-ng-model="$ctrl.cookieCount">
   </div>
+  <div data-ng-show="$ctrl.cookieCount % 2 === 1">It's bad to eat odd-numbered food!</div>
   <button type="button" data-ng-click="$ctrl.putCookieInJar()">Put cookie in jar</button>
   <button type="button" data-ng-click="$ctrl.takeAllCookies()">Take all cookies</button>
 </div>
