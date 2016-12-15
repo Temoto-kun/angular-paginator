@@ -4,65 +4,83 @@
 
 body {
   margin: 0;
+  font-family: sans-serif;
 }
 
-.dismissible-popup {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  z-index: 1;
-  width: 350px;
-  padding: 30px;
-  background-color: rgba(0,0,0,0.85);
-  color: #fff;
+@media only screen {
+  .dismissible-popup {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    z-index: 1;
+    width: 350px;
+    padding: 30px;
+    background-color: rgba(0,0,0,0.85);
+    color: #fff;
+    font-size: 85%;
+  }
+
+  .dismissible-popup a {
+    color: #4183c4;
+  }
+
+  .demo-component {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+  }
+
+  .demo-component > .nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 300px;
+    background-color: #eee;
+  }
+
+  .nav-component > .list {
+    padding: 0;
+    margin: 0;
+  }
+
+  .demo-component > .workspace {
+    padding-left: 300px;
+    height: 100%;
+  }
+
+  .pagination-workspace > .viewport {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+  }
+
+  .nav-component > .list > .item {
+    display: block;
+  }
+
+  .nav-item > .anchor {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    padding: 8px 16px;
+  }
+
+  .nav-item.-active {
+    background-color: rgba(0,0,0,0.125);
+  }
+
+  .nav-item > .anchor:hover {
+    background-color: rgba(0,0,0,0.25);
+  }
 }
 
-.demo-component {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-}
+@media only print {
+  .dismissible-popup {
+    display: none;
+  }
 
-.demo-component > .nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 300px;
-  background-color: #eee;
-}
-
-.nav-component > .list {
-  padding: 0;
-  margin: 0;
-}
-
-.demo-component > .workspace {
-  padding-left: 300px;
-  height: 100%;
-}
-
-.pagination-workspace > .viewport {
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-}
-
-.nav-component > .list > .item {
-  display: block;
-}
-
-.nav-item > .anchor {
-  display: block;
-  color: inherit;
-  text-decoration: none;
-  padding: 8px 16px;
-}
-
-.nav-item.-active {
-  background-color: rgba(0,0,0,0.125);
-}
-
-.nav-item > .anchor:hover {
-  background-color: rgba(0,0,0,0.25);
+  .nav-component {
+    display: none;
+  }
 }

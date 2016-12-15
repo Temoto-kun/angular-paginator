@@ -5,7 +5,7 @@
             var ctrl = this;
 
             ctrl.$onInit = function () {
-                ctrl.popupVisible = false;
+                ctrl.popupVisible = true;
             };
         });
 })();
