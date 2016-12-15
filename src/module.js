@@ -5,13 +5,8 @@
         'theoryofnekomata.paginator.services'
     ]);
 
-    angular.module('theoryofnekomata.paginator.components.page', [
-        'theoryofnekomata.paginator.controllers'
-    ]);
-
     angular.module('theoryofnekomata.paginator.components', [
-        'theoryofnekomata.paginator.controllers',
-        'theoryofnekomata.paginator.components.page'
+        'theoryofnekomata.paginator.controllers'
     ]);
 
     angular.module('theoryofnekomata.paginator', [

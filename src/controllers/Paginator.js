@@ -19,12 +19,12 @@
                 $footer = $models.children().eq(2);
 
             function updateHeaders() {
-                var $headers = $header.children();
+                var $headers = $header.find('.header');
 
                 //$headers = $headers.clone(true, true);
 
                 $component.find('.header').remove();
-                $component.append($headers);
+                $component.append($headers.clone(true));
             }
 
             function updateContent() {
@@ -38,12 +38,12 @@
             }
 
             function updateFooters() {
-                var $footers = $footer.children();
+                var $footers = $footer.find('.footer');
 
                 //$footers = $footers.clone(true, true);
 
                 $component.find('.footer').remove();
-                $component.append($footers);
+                $component.append($footers.clone(true));
             }
 
             function clearView() {
