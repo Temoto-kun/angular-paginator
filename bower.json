@@ -1,0 +1,29 @@
+{
+  "name": "angular-paginator",
+  "description": "Directive that splits elements inside it.",
+  "main": "bin/angular-paginator.js",
+  "authors": [
+    "TheoryOfNekomata <allan.crisostomo@outlook.com>"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "AngularJS",
+    "pagination",
+    "UI",
+    "DOM",
+    "presentation",
+    "preview",
+    "wysiwyg"
+  ],
+  "homepage": "https://github.com/Temoto-kun/angular-paginator",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}
