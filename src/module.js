@@ -10,7 +10,6 @@
     ]);
 
     angular.module('theoryofnekomata.paginator', [
-        'theoryofnekomata.paginator.components',
-        'theoryofnekomata.paginator.components.page'
+        'theoryofnekomata.paginator.components'
     ]);
 })();
