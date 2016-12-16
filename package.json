@@ -26,11 +26,12 @@
   },
   "homepage": "https://github.com/Temoto-kun/angular-paginator#readme",
   "devDependencies": {
+    "angular-ui-router": "^0.3.2",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
+    "gulp-csso": "^2.0.0",
     "gulp-ng-annotate": "^2.0.0",
-    "gulp-uglify": "^2.0.0",
-    "angular-ui-router": "^0.3.2"
+    "gulp-uglify": "^2.0.0"
   },
   "dependencies": {
     "@theoryofnekomata/jquery-paginator": "temoto-kun/jquery-paginator",
