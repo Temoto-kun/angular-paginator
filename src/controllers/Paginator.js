@@ -7,6 +7,7 @@
         .module('theoryofnekomata.paginator.controllers')
         .controller('PaginatorCtrl', function PaginatorCtrl(
             $element,
+            $rootScope,
             PaginatorSettingsService
         ) {
             "ngInject";

@@ -23,7 +23,5 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "jquery-paginator": "Temoto-kun/jquery-paginator"
-  }
+  "dependencies": {}
 }

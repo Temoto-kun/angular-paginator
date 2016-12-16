@@ -34,7 +34,6 @@
     "gulp-uglify": "^2.0.0"
   },
   "dependencies": {
-    "@theoryofnekomata/jquery-paginator": "temoto-kun/jquery-paginator",
     "angular": "^1.6.0"
   }
 }
