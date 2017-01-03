@@ -7,6 +7,11 @@ body {
   font-family: sans-serif;
 }
 
+.nav > .title {
+  padding: 16px 32px;
+  margin: 0;
+}
+
 @media only screen {
   .dismissible-popup {
     position: absolute;
@@ -63,7 +68,7 @@ body {
     display: block;
     color: inherit;
     text-decoration: none;
-    padding: 8px 16px;
+    padding: 16px 32px;
   }
 
   .nav-item.-active {

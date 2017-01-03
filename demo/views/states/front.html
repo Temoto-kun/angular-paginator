@@ -1,8 +1,12 @@
 <h1 class="page-block">Front</h1>
 <foo-counter data-on-change="frontCtrl.changeLongArrayLength($count)"></foo-counter>
-<div class="page-block" data-ng-repeat="i in frontCtrl.longArray track by $index">
-  The quick brown fox jumps over the lazy dog #{{ i }}.
+<div data-ng-repeat="i in frontCtrl.longArray track by $index">
+  <div class="page-block">
+    The quick brown fox jumps over the lazy dog #{{ i }}.
+  </div>
 </div>
-<div class="page-block">
-  Last block.
+<div>
+  <div class="page-block">
+    Last block.
+  </div>
 </div>

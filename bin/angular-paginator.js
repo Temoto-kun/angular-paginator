@@ -41,32 +41,15 @@
 })();
 
 (function () {
-    angular
-        .module('theoryofnekomata.paginator.controllers')
-        .controller('FooterCtrl', function FooterCtrl() {
-            "ngInject";
-        });
-})();
-
-(function () {
-    angular
-        .module('theoryofnekomata.paginator.controllers')
-        .controller('HeaderCtrl', function () {
-            "ngInject";
-        });
-
-})();
-
-(function () {
     var debounce = null,
         lock = false,
-        debounceDelay = 0;
+        debounceDelay = 250;
 
     angular
         .module('theoryofnekomata.paginator.controllers')
-        .controller('PaginatorCtrl', function PaginatorCtrl(
+        .controller('PaginatorCtrl', ["$element", "$scope", "PaginatorSettingsService", function PaginatorCtrl(
             $element,
-            $rootScope,
+            $scope,
             PaginatorSettingsService
         ) {
             "ngInject";
@@ -145,6 +128,24 @@
             }
 
             this.$onInit = function () {
+                //var observer = new MutationObserver(update);
+                //
+                //observer.observe($header[0], { childList: true, attributes: true, characterData: true, subtree: true });
+                //observer.observe($content[0], { childList: true, attributes: true, characterData: true, subtree: true });
+                //observer.observe($footer[0], { childList: true, attributes: true, characterData: true, subtree: true });
+
+                $element.addClass('paginator-wrapper');
+
+                $component.on('paginator.modelchangestart', function () {
+                    $scope.$emit('paginator.modelchangestart');
+                    $element.addClass('-loading');
+                });
+
+                $component.on('paginator.modelchangeend', function () {
+                    $scope.$emit('paginator.modelchangeend');
+                    $element.removeClass('-loading');
+                });
+
                 $header.on('DOMSubtreeModified', function () {
                     debounceUpdate();
                 });
@@ -157,7 +158,7 @@
                     debounceUpdate();
                 });
             };
-        });
+        }]);
 })();
 
 (function () {
@@ -171,14 +172,18 @@
                         '<div data-ng-transclude="headers"></div>' +
                         '<div data-ng-transclude="content"></div>' +
                         '<div data-ng-transclude="footers"></div>' +
-                    '</div>'
+                    '</div>' +
+                    '<div class="paginator-loader" data-ng-transclude="loader"></div>'
                 );
             },
             transclude: {
-                headers: 'tmtknPageHeaders',
+                headers: '?tmtknPageHeaders',
                 content: 'tmtknPaginatorContent',
-                footers: 'tmtknPageFooters'
+                footers: '?tmtknPageFooters',
+                loader: '?tmtknPaginatorLoader'
             },
             controller: 'PaginatorCtrl'
         });
 })();
+
+//# sourceMappingURL=angular-paginator.js.map

@@ -9,13 +9,15 @@
                         '<div data-ng-transclude="headers"></div>' +
                         '<div data-ng-transclude="content"></div>' +
                         '<div data-ng-transclude="footers"></div>' +
-                    '</div>'
+                    '</div>' +
+                    '<div class="paginator-loader" data-ng-transclude="loader"></div>'
                 );
             },
             transclude: {
-                headers: 'tmtknPageHeaders',
+                headers: '?tmtknPageHeaders',
                 content: 'tmtknPaginatorContent',
-                footers: 'tmtknPageFooters'
+                footers: '?tmtknPageFooters',
+                loader: '?tmtknPaginatorLoader'
             },
             controller: 'PaginatorCtrl'
         });

@@ -2,6 +2,16 @@
   display: none;
 }
 
-.paginator-section {
-  display: inline;
+.paginator-wrapper {
+  display: block;
 }
+
+.paginator-wrapper .paginator-loader {
+  display: none;
+}
+
+.paginator-wrapper.-loading .paginator-loader {
+  display: block;
+}
+
+/*# sourceMappingURL=angular-paginator.css.map */

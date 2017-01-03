@@ -1,1 +1,2 @@
-.paginator-model{display:none}.paginator-section{display:inline}
+.paginator-model,.paginator-wrapper .paginator-loader{display:none}.paginator-wrapper,.paginator-wrapper.-loading .paginator-loader{display:block}
+/*# sourceMappingURL=angular-paginator.min.css.map */

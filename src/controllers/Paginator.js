@@ -1,13 +1,13 @@
 (function () {
     var debounce = null,
         lock = false,
-        debounceDelay = 0;
+        debounceDelay = 250;
 
     angular
         .module('theoryofnekomata.paginator.controllers')
         .controller('PaginatorCtrl', function PaginatorCtrl(
             $element,
-            $rootScope,
+            $scope,
             PaginatorSettingsService
         ) {
             "ngInject";
@@ -86,6 +86,24 @@
             }
 
             this.$onInit = function () {
+                //var observer = new MutationObserver(update);
+                //
+                //observer.observe($header[0], { childList: true, attributes: true, characterData: true, subtree: true });
+                //observer.observe($content[0], { childList: true, attributes: true, characterData: true, subtree: true });
+                //observer.observe($footer[0], { childList: true, attributes: true, characterData: true, subtree: true });
+
+                $element.addClass('paginator-wrapper');
+
+                $component.on('paginator.modelchangestart', function () {
+                    $scope.$emit('paginator.modelchangestart');
+                    $element.addClass('-loading');
+                });
+
+                $component.on('paginator.modelchangeend', function () {
+                    $scope.$emit('paginator.modelchangeend');
+                    $element.removeClass('-loading');
+                });
+
                 $header.on('DOMSubtreeModified', function () {
                     debounceUpdate();
                 });
