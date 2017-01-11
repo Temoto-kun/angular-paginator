@@ -96,12 +96,10 @@
 
                 $component.on('paginator.modelchangestart', function () {
                     $scope.$emit('paginator.modelchangestart');
-                    $element.addClass('-loading');
                 });
 
                 $component.on('paginator.modelchangeend', function () {
                     $scope.$emit('paginator.modelchangeend');
-                    $element.removeClass('-loading');
                 });
 
                 $header.on('DOMSubtreeModified', function () {
