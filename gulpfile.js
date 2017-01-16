@@ -6,7 +6,6 @@ var
      */
     scripts = [
         './src/module.js',
-        './src/services/**/*.js',
         './src/controllers/**/*.js',
         './src/components/**/*.js'
     ],

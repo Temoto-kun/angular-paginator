@@ -2,23 +2,8 @@
     angular
         .module('theoryofnekomata.paginator.components')
         .component('tmtknPaginator', {
-            template: function () {
-                return (
-                    '<div class="paginator-component"></div>' +
-                    '<div class="paginator-model">' +
-                        '<div data-ng-transclude="headers"></div>' +
-                        '<div class="paginator-content" data-ng-transclude="content"></div>' +
-                        '<div data-ng-transclude="footers"></div>' +
-                    '</div>' +
-                    '<div class="paginator-loader" data-ng-transclude="loader"></div>'
-                );
-            },
-            transclude: {
-                headers: '?tmtknPageHeaders',
-                content: 'tmtknPaginatorContent',
-                footers: '?tmtknPageFooters',
-                loader: '?tmtknPaginatorLoader'
-            },
-            controller: 'PaginatorCtrl'
+            controller: 'PaginatorCtrl',
+            template: '<div class="paginator-component" data-ng-transclude></div>',
+            transclude: true
         });
 })();
