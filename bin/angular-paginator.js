@@ -56,105 +56,64 @@
 
             var $component = $element.children().eq(0),
                 $models = $element.children().eq(1),
-
-                $header = $models.children().eq(0),
                 $content = $models.children().eq(1),
-                $footer = $models.children().eq(2);
+                $contentContainer = $('<div>'),
+                observer = new MutationObserver(update);
 
-            function updateHeaders() {
-                var $headers = $header.find('.header');
+            function extractElements() {
+                console.log($content);
 
-                //$headers = $headers.clone(true, true);
+                $content
+                    .children()
+                    .children()
+                    .appendTo($contentContainer);
 
-                $component.find('.header').remove();
-                $component.append($headers.clone(true));
-            }
-
-            function updateContent() {
-                var $contentWrapper = $('<div>');
-
-                //$contentEl = $contentEl.clone(true, true);
-
-                $contentWrapper.addClass('content').append($content.children());
-                $component.find('.content').remove();
-                $component.append($contentWrapper);
-            }
-
-            function updateFooters() {
-                var $footers = $footer.find('.footer');
-
-                //$footers = $footers.clone(true, true);
-
-                $component.find('.footer').remove();
-                $component.append($footers.clone(true));
-            }
-
-            function clearView() {
-                $component.html('');
-            }
-
-            function paginateView() {
-                var settings = PaginatorSettingsService.getSettings();
-
-                settings.ignore = [
-                    '[data-ng-repeat]'
-                ];
-
-                $component.paginate(settings);
+                $models
+                    .find('.header, .footer')
+                    .appendTo($component.find('.watch'));
             }
 
             function update() {
-                lock = true;
-                clearView();
-                updateHeaders();
-                updateContent();
-                updateFooters();
-                paginateView();
-                lock = false;
+                detachObserver();
+                extractElements();
+                attachObserver();
             }
 
-            function debounceUpdate() {
-                if (!!lock) {
-                    return;
-                }
+            function initComponentHtml() {
+                $element.addClass('paginator-wrapper');
 
-                if (!!debounce) {
-                    clearTimeout(debounce);
-                }
+                $component.paginate();
 
-                debounce = setTimeout(function () {
-                    update();
-                }, debounceDelay);
+                $contentContainer
+                    .addClass('content')
+                    .appendTo($component.find('.watch'));
+            }
+
+            function initEvents() {
+                var eventNames = 'modelchangestart modelchangeend'.split(' ');
+
+                eventNames
+                    .forEach(function (eventName) {
+                        var paginatorEventName = 'paginator.' + eventName;
+
+                        $component.on(paginatorEventName, function () {
+                            $scope.$emit(paginatorEventName);
+                        });
+                    });
+            }
+
+            function attachObserver() {
+                observer.observe($models[0], { childList: true, attributes: true, characterData: true, subtree: true });
+            }
+
+            function detachObserver() {
+                observer.disconnect();
             }
 
             this.$onInit = function () {
-                //var observer = new MutationObserver(update);
-                //
-                //observer.observe($header[0], { childList: true, attributes: true, characterData: true, subtree: true });
-                //observer.observe($content[0], { childList: true, attributes: true, characterData: true, subtree: true });
-                //observer.observe($footer[0], { childList: true, attributes: true, characterData: true, subtree: true });
-
-                $element.addClass('paginator-wrapper');
-
-                $component.on('paginator.modelchangestart', function () {
-                    $scope.$emit('paginator.modelchangestart');
-                });
-
-                $component.on('paginator.modelchangeend', function () {
-                    $scope.$emit('paginator.modelchangeend');
-                });
-
-                $header.on('DOMSubtreeModified', function () {
-                    debounceUpdate();
-                });
-
-                $content.on('DOMSubtreeModified', function () {
-                    debounceUpdate();
-                });
-
-                $footer.on('DOMSubtreeModified', function () {
-                    debounceUpdate();
-                });
+                initComponentHtml();
+                initEvents();
+                attachObserver();
             };
         }]);
 })();
@@ -168,7 +127,7 @@
                     '<div class="paginator-component"></div>' +
                     '<div class="paginator-model">' +
                         '<div data-ng-transclude="headers"></div>' +
-                        '<div data-ng-transclude="content"></div>' +
+                        '<div class="paginator-content" data-ng-transclude="content"></div>' +
                         '<div data-ng-transclude="footers"></div>' +
                     '</div>' +
                     '<div class="paginator-loader" data-ng-transclude="loader"></div>'
