@@ -56,7 +56,7 @@
         .module('theoryofnekomata.paginator.components')
         .component('tmtknPaginator', {
             controller: 'PaginatorCtrl',
-            template: '<div class="paginator-component" data-ng-transclude></div>',
+            template: '<div data-ng-transclude></div>',
             transclude: true
         });
 })();
