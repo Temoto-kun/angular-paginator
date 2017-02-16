@@ -17,9 +17,10 @@
 (function () {
     angular
         .module('theoryofnekomata.paginator.controllers')
-        .controller('PaginatorCtrl', ["$element", "$scope", function PaginatorCtrl(
+        .controller('PaginatorCtrl', ["$element", "$scope", "$timeout", function PaginatorCtrl(
             $element,
-            $scope
+            $scope,
+            $timeout
         ) {
             "ngInject";
 
@@ -28,12 +29,11 @@
                     'paginator.renderstart',
                     'paginator.renderend'
                 ],
-                isRenderedAgain = false,
+                //isRenderedAgain = false,
                 paginator;
 
             function bindEvents(event) {
                 $component.on(event, function (e, d) {
-
                     //if (event === 'paginator.renderend' && isRenderedAgain) {
                     //    isRenderedAgain = false;
                     //}
@@ -50,6 +50,15 @@
                     //    paginator.refresh();
                     //    isRenderedAgain = true;
                     //}
+
+                    if (event === 'paginator.renderstart') {
+                        $component.css('overflow', 'visible');
+                    }
+
+                    if (event === 'paginator.renderend') {
+                        $component.prop('scrollTop', 0);
+                        $component.css('overflow', '');
+                    }
                 });
             }
 
@@ -68,7 +77,6 @@
 
                 $scope.$on('paginator.refresh', function () {
                     paginator.refresh();
-                    $component.prop('scrollTop', 0);
                 });
             };
         }]);

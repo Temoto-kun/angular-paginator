@@ -82,3 +82,7 @@ gulp.task('default', [
     'compile-styles',
     'compile-styles-minified'
 ]);
+
+gulp.task('watch', ['default'], function () {
+    gulp.watch(scripts, ['compile-scripts', 'compile-scripts-minified']);
+});
