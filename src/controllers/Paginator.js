@@ -17,6 +17,7 @@
                 paginator;
 
             function bindEvents(event) {
+                var scrollTop;
                 $component.on(event, function (e, d) {
                     //if (event === 'paginator.renderend' && isRenderedAgain) {
                     //    isRenderedAgain = false;
@@ -36,12 +37,13 @@
                     //}
 
                     if (event === 'paginator.renderstart') {
-                        $component.css('overflow', 'visible');
+                        //scrollTop = $component.prop('scrollTop');
+                        //$component.css('overflow', 'hidden');
                     }
 
                     if (event === 'paginator.renderend') {
-                        $component.prop('scrollTop', 0);
-                        $component.css('overflow', '');
+                        //$component.prop('scrollTop', 0);
+                        //$component.css('overflow', '');
                     }
                 });
             }
